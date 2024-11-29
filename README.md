@@ -63,3 +63,6 @@ The ML model, trained using a **SageMaker notebook template**, predicts whether 
 
 This project demonstrates a scalable and efficient approach to deploying ML models on the cloud, enabling real-time predictions for end users.  
 
+
+## Refrence 
+https://aws.amazon.com/blogs/machine-learning/call-an-amazon-sagemaker-model-endpoint-using-amazon-api-gateway-and-aws-lambda/

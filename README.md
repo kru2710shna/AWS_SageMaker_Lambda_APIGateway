@@ -64,5 +64,70 @@ The ML model, trained using a **SageMaker notebook template**, predicts whether 
 This project demonstrates a scalable and efficient approach to deploying ML models on the cloud, enabling real-time predictions for end users.  
 
 
+## Answering Some Questions
+
+### User Interaction
+
+What happens?
+End-users interact with the system by providing input data through a web interface or application.
+Purpose:
+The users aim to leverage AI insights by submitting specific input data (e.g., text, images, or other formats) for analysis.
+
+### Input Data Sent to API Gateway
+
+What happens?
+The input data is forwarded to Amazon API Gateway, which serves as the entry point for the system.
+Purpose:
+API Gateway acts as a REST API endpoint to securely accept, process, and route user input data to the appropriate backend service.
+
+### API Gateway Sends Data to AWS Lambda
+
+What happens?
+After receiving the input, Amazon API Gateway triggers an AWS Lambda function, passing along the user data.
+Purpose:
+Lambda functions handle the business logic, processing, and routing of the request to the next step in the workflow.
+
+### AWS Lambda Invokes SageMaker Endpoint
+
+What happens?
+AWS Lambda sends the input data to the Amazon SageMaker Endpoint, which hosts the pre-trained machine learning model.
+Purpose:
+The Lambda function triggers the SageMaker Endpoint with the task of making a prediction using the input data.
+The model processes the input and generates an output (e.g., prediction or insight).
+
+## ML Model Processing in SageMaker
+
+What happens?
+The SageMaker instance loads the machine learning model (stored as a binary file) to handle the prediction request.
+The trained model processes the input data and generates a response.
+Purpose:
+To perform the core AI/ML task (e.g., classification, regression, or text generation) and return actionable insights.
+
+## Model Endpoint Sends Prediction to Lambda
+
+What happens?
+The SageMaker Endpoint returns the predicted results or insights to the AWS Lambda function.
+Purpose:
+To relay the processed response from the model back to the Lambda function for further processing or routing.
+
+## Lambda Sends Response to API Gateway
+
+What happens?
+The Lambda function sends the prediction result (in the required format) back to the Amazon API Gateway.
+Purpose:
+To ensure that the response is appropriately formatted and routed back to the user.
+
+## User Receives Prediction
+
+What happens?
+The API Gateway sends the processed prediction or insights back to the end-user interface.
+Purpose:
+To complete the cycle, delivering the model’s insights to the user in a seamless and efficient manner.
+
+
+
+This workflow provides a scalable, serverless architecture for deploying and utilizing machine learning models with Amazon SageMaker. It ensures efficient data handling, processing, and response delivery using AWS Lambda and API Gateway as intermediary layers
+
+
 ## Refrence 
 https://aws.amazon.com/blogs/machine-learning/call-an-amazon-sagemaker-model-endpoint-using-amazon-api-gateway-and-aws-lambda/
